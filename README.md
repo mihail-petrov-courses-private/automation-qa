@@ -15,6 +15,10 @@
 - [GIT](https://git-scm.com/download/win)  Система за управление на версиите - GIT
 - [Github for windows](https://desktop.github.com/) Система за менежиране на Git в контекста на GitHub
 
+## Дискусии и комуникация
+Ползвайте [канала в Discord](https://discord.gg/RhBk4kqurB) за да се информирате за всичко ново в рамките на курса. За по формални въпроси пишете на E-mail - **mail@mihail-petrov.me**
+
+
 ## Проведени занятия по срещи и дати
 
 ### **Въведение в програмирането с JavaScript**
