@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Unititle Document Example</title>
+    </head>
+    <body>
+        
+        <div id="sidebar">
+
+            <div id="logo">
+                <img id="logo-img" src="imgs\logo.png">
+                <h1 id="logo-title">Unititle UI</h1>
+            </div>
+
+            <!-- Форма за търсене на информация -->
+            <form>
+                <input type="text" placeholder="Search">
+                <input type="submit">
+            </form>
+
+
+            <!-- Основно меню за навигация в системата -->
+            <ul id="main-menu">
+                <li class="menu-item">
+                   <div class="menu-item__icon"></div> 
+                   <div class="menu-item__title">Home</div>
+                   <div class="menu-item__extra"></div>
+                </li>
+                <li class="menu-item">
+                    <div class="menu-item__icon"></div> 
+                    <div class="menu-item__title">Dashboard</div>
+                    <div class="menu-item__extra">10</div>
+                </li>
+                <li class="menu-item">
+                    <div class="menu-item__icon"></div> 
+                    <div class="menu-item__title">Projects</div>
+                    <div class="menu-item__extra"></div>
+                </li>
+                <li class="menu-item">
+                    <div class="menu-item__icon"></div> 
+                    <div class="menu-item__title">Tasks</div>
+                    <div class="menu-item__extra">5</div>
+                </li>
+                <li class="menu-item">
+                    <div class="menu-item__icon"></div> 
+                    <div class="menu-item__title">Reporting</div>
+                    <div class="menu-item__extra"></div>
+                </li>
+                <li class="menu-item">
+                    <div class="menu-item__icon"></div> 
+                    <div class="menu-item__title">Users</div>
+                    <div class="menu-item__extra"></div>
+                </li>                
+            </ul>
+
+            <!-- Меню за оплаквания и настройки -->            
+            <ul id="secondary-menu">
+                <li class="menu-item">
+                    <div class="menu-item__icon"></div> 
+                    <div class="menu-item__title">Support</div>
+                    <div class="menu-item__extra"></div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="menu-item__icon"></div> 
+                    <div class="menu-item__title">Settings</div>
+                    <div class="menu-item__extra"></div>
+                </li>                
+            </ul>
+
+            <div id="notification-placeholder">
+                <div class="notification">
+                    <header>Used space</header>
+                    <div class="notification__content">
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur dicta ex iste quaerat voluptates hic velit culpa ab! Corporis debitis neque est deleniti officia unde numquam asperiores commodi, atque voluptatum.</p>
+                    </div>
+                    <div class="notification__action">
+                        <span class="notification__action__element">
+                            Dismiss
+                        </span>
+                        <span class="notification__action__element">
+                            Upgrade plan
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="account-placeholder">
+
+                <div 
+                    class="account__image">
+                    <img src="">
+                </div>
+                <div 
+                    class="account__info">
+                    <span 
+                        class="account__info__title">
+                        Mihail Petrov
+                    </span>
+                    <a 
+                        href="" 
+                        class="account__info__email">
+                        email@mail.bg
+                    </a>
+                </div>
+                <div class="account__action">
+                    <img src="">
+                </div>
+            </div>
+
+        </div>
+
+
+        <div id="content">
+
+            <h2 class="header">Settings</h2>
+            <h4 class="subtext">Manage your team and preferences</h4>
+            
+            <div id="action-panel">
+                <div class="page-action">My details</div>
+                <div class="page-action">Profile</div>
+                <div class="page-action">Password</div>
+            </div>
+    
+            <div id="property-panel">
+                <span>Italic</span>
+                <span>Bold</span>
+                <span>Underline</span>
+            </div>
+            
+            <section>
+
+                <header 
+                    class="header">
+                    Payment method
+                </header>
+                <span 
+                    class="subtext">
+                    Update your billing details
+                </span>    
+
+                <article class="info-panel">
+
+                    <header 
+                        class="info-panel__header">
+                        Contact email
+                    </header>
+                    <span 
+                        class="info-panel__description">
+                        Where the E-mail must be send
+                    </span>
+
+                    <div class="info-panel__content">
+
+                        <form>
+                            <input name="email-type" type="radio"> <label>Send to my e-mail</label>
+                            <input name="email-type" type="radio"> <label>Send to alternative e-mail</label>
+                        </form>
+
+                    </div>
+
+                </article>
+
+                <article class="info-panel">
+
+                    <header 
+                        class="info-panel__header">
+                        Card details
+                    </header>
+                    <span 
+                        class="info-panel__description">
+                        Select details method
+                    </span>
+
+                    <div class="info-panel__content">
+
+                        <form>
+
+                            <div class="radio_panel">
+                                <input name="email-type" type="radio">
+                                <header>Visa</header>
+                            </div>
+
+                            <div class="radio_panel">
+                                <input name="email-type" type="radio">
+                                <header>Master card</header>
+                            </div>
+                        </form>
+
+                    </div>
+
+                </article>
+
+            </section>
+            
+        </div>
+
+    </body>
+</html>
