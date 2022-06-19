@@ -8,7 +8,7 @@
 - Темплейтни стрингове
 
  #### 📚 - Ресурси и материали
-<!-- - [Видео от срещата](https://www.youtube.com/watch?v=kv2_SK9K_qg&list=PLyZOguednhL5s3LH63o1q8CHhfNk4kvf1&index=4) -->
+- [Видео от срещата](https://www.youtube.com/watch?v=3qpPdPpM-jE&list=PLyZOguednhL5s3LH63o1q8CHhfNk4kvf1&index=5)
 - [Сорс код от срещата](./source/)
 
  #### 🕹️ - Задачи за упражнения
