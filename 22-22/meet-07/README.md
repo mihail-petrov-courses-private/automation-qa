@@ -6,7 +6,7 @@
 - Работа с дебъгера на Dev Tools
 
 #### 📚 - Ресурси и материали
-- [Видео от срещата](https://www.youtube.com/watch?v=qViuwvDcsOw&list=PLyZOguednhL5s3LH63o1q8CHhfNk4kvf1&index=9)
+- [Видео от срещата](https://www.youtube.com/watch?v=6TSsaAW2ofg&list=PLyZOguednhL5s3LH63o1q8CHhfNk4kvf1&index=10)
 - [Сорс код от срещата](./source/)
 
 #### 🕹️ - Задачи за упражнения
