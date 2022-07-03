@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #calculator-display {
+            height: 25px;
+            border: solid 2px;
+        }
+
+        .number {
+            background: blue;
+            color: white;
+        }
+
+        .operation {
+            background: #ffe6cc;
+        }
+
+
+    </style>
+
+</head>
+<body>
+    
+    <table>
+        <tr>
+            <td colspan="5">
+               <div id="calculator-display"></div> 
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button class="number">7</button>
+            </td>
+            <td>
+                <button class="number">8</button>
+            </td>        
+            <td>
+                <button class="number">9</button>
+            </td>        
+            <td>
+                <button class="number">0</button>
+            </td>        
+            <td>
+                <button class="operation">C</button>
+            </td>                        
+        </tr>
+
+        <tr>
+            <td>
+                <button class="number">4</button>
+            </td>
+            <td>
+                <button class="number">5</button>
+            </td>        
+            <td>
+                <button class="number">6</button>
+            </td>        
+            <td>
+                <button class="operation">-</button>
+            </td>        
+            <td>
+                <button class="operation">/</button>
+            </td>                        
+        </tr>
+
+        <tr>
+            <td>
+                <button class="number">1</button>
+            </td>
+            <td>
+                <button class="number">2</button>
+            </td>        
+            <td>
+                <button class="number">3</button>
+            </td>        
+            <td>
+                <button class="operation">+</button>
+            </td>        
+            <td>
+                <button class="operation">*</button>
+            </td>                        
+        </tr>        
+
+        <tr>
+            <td colspan="5">
+                <button 
+                    style="width: 100%"
+                    class="operation">=</button>
+            </td>
+        </tr>
+
+        <tr></tr>
+        <tr></tr>
+        <tr></tr>
+    </table>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
