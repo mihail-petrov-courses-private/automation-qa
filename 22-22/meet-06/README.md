@@ -17,6 +17,5 @@
 - [Домашна работа](./hw/README.md)
 
 #### 📘 - Решения на домашна работа
-<!-- - [Видео решение](https://www.youtube.com/watch?v=VndSp3HvEd0&list=PLyZOguednhL5s3LH63o1q8CHhfNk4kvf1&index=6) -->
+- [Видео решение](https://www.youtube.com/watch?v=-JZ16-a4_b0&list=PLyZOguednhL5s3LH63o1q8CHhfNk4kvf1&index=10)
 - [Сорс код решение на домашна работа](./source-hw)
-
