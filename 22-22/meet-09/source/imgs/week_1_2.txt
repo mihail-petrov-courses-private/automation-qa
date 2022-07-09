@@ -1,0 +1,19 @@
+JAVA Академия за начинаещи
+#Седмица 1. Въведение в курса
+* 0 поколение - 0 / 1
+
+JDK - Java Development Kit
+JRE - Java Runtime Environment
+JRE + JDK = Java виртуална машина
+
+SDK - Software Development Kit
+IDE - Интегрирана среда за разработка на софтуер
+
+
+() -> executor
+клас - кутия
+метод - инструмент
+
+
+Java SE - Standart edition
+Java EE - Enterprise edition
