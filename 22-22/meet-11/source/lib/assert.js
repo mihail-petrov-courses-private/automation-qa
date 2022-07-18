@@ -1,10 +1,15 @@
+function nottifyAssertProcessor(message, given) {
+
+    throw {
+        name    : "assertError",
+        message : `${message}. Given input ${given} `
+    }
+}
+
 function isTrue(input, message) {
     
     if(input != true) {
-        throw {
-            name: "assertError",
-            message
-        }
+        nottifyAssertProcessor(message, input);
     }
 }
 
@@ -20,10 +25,7 @@ function doesNotThrowException(callback, message) {
         callback();
     }
     catch(error) {
-        throw {
-            name: "assertError",
-            message
-        }     
+        nottifyAssertProcessor(message);
     }
 }
 
@@ -32,17 +34,30 @@ function doesTrowException(callback, message) {
     try {
 
         callback();
-
-        throw {
-            name: "assertError",
-            message
-        }     
+        nottifyAssertProcessor(message);
     }
     catch(error) {
 
     }
 }
 
+
+function isEqual(input, expect, message) {
+
+    if(input != expect) {
+        nottifyAssertProcessor(message, input);
+    }
+}
+
+function isNotEqual(input, expect, message) {
+    
+    if(input == expect) {
+        nottifyAssertProcessor(message, input);
+    }
+}
+
+
 module.exports = {
-    isTrue, isFalse, doesNotThrowException, doesTrowException
+    isTrue, isFalse, doesNotThrowException, doesTrowException,
+    isEqual, isNotEqual
 }

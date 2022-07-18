@@ -27,4 +27,13 @@ testRunner.suite('check if customer folders and files are correct', function() {
             fs.readdirSync(TEST_DIR_SRC);
         }, 'The folder id45eres4774561A does not exists');
     });
+
+
+    testRunner.test('check if main file content is equals the folder id', function() {
+
+        const TEST_DIR_SRC      = `${__dirname}\\test_scenarios\\scenario-3\\id45eres4774561w`;
+        const mainFileContent   = fs.readFileSync(`${TEST_DIR_SRC}\\main`);
+
+        customAssert.isEqual(mainFileContent, 'id45eres4774561W', 'Main file content must be equals to id45eres4774561w');
+    });
 });

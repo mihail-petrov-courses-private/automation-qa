@@ -4,8 +4,6 @@ const fs                     = require('fs');
 const socialNetworkProcessor = require('./src/processor.js');
 const object = socialNetworkProcessor.initConfig(`${__dirname}/test_scenarious/normal/config.json`);
 
-
-
 object.addNewFriend();
 console.log(object.getAllFriends());
 object.removeExistingFriend();
