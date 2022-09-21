@@ -1,0 +1,380 @@
+{
+  "id": "9eb8ccb9-3814-4672-a27c-402817bc93e7",
+  "version": "2.0",
+  "name": "Wordpress",
+  "url": "http://localhost:1337/wordpress/wp-login.php",
+  "tests": [{
+    "id": "f096060a-07eb-4196-90d9-599186ca0d1a",
+    "name": "(success) Login As Admin",
+    "commands": [{
+      "id": "832d4da2-c7cc-4a6f-84cf-84fa6d740406",
+      "comment": "",
+      "command": "store",
+      "target": "wp_admin",
+      "targets": [],
+      "value": "AUTH_USERNAME"
+    }, {
+      "id": "97b64f8d-2e6f-4947-9752-d474b1edb55a",
+      "comment": "",
+      "command": "store",
+      "target": "password",
+      "targets": [],
+      "value": "AUTH_PASSWORD"
+    }, {
+      "id": "fa7aeebd-0a3f-4e9b-a410-da853c3923e2",
+      "comment": "",
+      "command": "executeScript",
+      "target": "\"(success) (f) Login\"",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7c54fbea-5c7d-4f0f-a249-017a0d0d51b7",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=.wp-has-current-submenu > .wp-menu-name",
+      "targets": [
+        ["css=.wp-has-current-submenu > .wp-menu-name", "css:finder"],
+        ["xpath=//li[@id='menu-settings']/a/div[3]", "xpath:idRelative"],
+        ["xpath=//li[12]/a/div[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2950ebf7-8160-4a13-b868-37dacfe443bb",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:1337/wordpress/wp-admin/options-general.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "23835839-9d18-421b-9fc4-947e3ae57faf",
+      "comment": "",
+      "command": "verifyTitle",
+      "target": "General Settings",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ac5a9e38-d4bf-4d9a-859f-44d56ca19aa5",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=h1",
+      "targets": [
+        ["css=h1", "css:finder"],
+        ["xpath=//div[@id='wpbody-content']/div[3]/h1", "xpath:idRelative"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'General Settings')]", "xpath:innerText"]
+      ],
+      "value": "General Settings"
+    }, {
+      "id": "02978e3a-c94c-4a97-8183-9ba95e360484",
+      "comment": "",
+      "command": "echo",
+      "target": "@Test finish successfully",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "8e5c782f-62a1-4875-86da-67d434c81ff1",
+    "name": "(success) Login As Author",
+    "commands": [{
+      "id": "d0c4bf83-3c88-4ab8-b3e0-96dac21494e0",
+      "comment": "",
+      "command": "open",
+      "target": "/wordpress/wp-login.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "cc759d91-c06d-46ec-aee7-cec17ef6cbfb",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "976x1080",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ad5f1738-bfb1-4dcb-9620-bb97e4bbc30c",
+      "comment": "",
+      "command": "click",
+      "target": "id=user_login",
+      "targets": [
+        ["id=user_login", "id"],
+        ["name=log", "name"],
+        ["css=#user_login", "css:finder"],
+        ["xpath=//input[@id='user_login']", "xpath:attributes"],
+        ["xpath=//form[@id='loginform']/p/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b291674c-876a-4965-8540-b67aec06e288",
+      "comment": "",
+      "command": "type",
+      "target": "id=user_login",
+      "targets": [
+        ["id=user_login", "id"],
+        ["name=log", "name"],
+        ["css=#user_login", "css:finder"],
+        ["xpath=//input[@id='user_login']", "xpath:attributes"],
+        ["xpath=//form[@id='loginform']/p/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "wp_author"
+    }, {
+      "id": "2b914a82-bc37-4bec-8ca1-d394149fbbdc",
+      "comment": "",
+      "command": "click",
+      "target": "id=user_pass",
+      "targets": [
+        ["id=user_pass", "id"],
+        ["name=pwd", "name"],
+        ["css=#user_pass", "css:finder"],
+        ["xpath=//input[@id='user_pass']", "xpath:attributes"],
+        ["xpath=//form[@id='loginform']/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2572df1e-e73b-4e96-9ef9-f99a6772e780",
+      "comment": "",
+      "command": "click",
+      "target": "css=.login",
+      "targets": [
+        ["css=.login", "css:finder"],
+        ["xpath=//body", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b304395f-688c-4b20-88a5-3f69eab92ab1",
+      "comment": "",
+      "command": "type",
+      "target": "id=user_pass",
+      "targets": [
+        ["id=user_pass", "id"],
+        ["name=pwd", "name"],
+        ["css=#user_pass", "css:finder"],
+        ["xpath=//input[@id='user_pass']", "xpath:attributes"],
+        ["xpath=//form[@id='loginform']/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "password"
+    }, {
+      "id": "1cf2dcfb-d63b-42ec-bc03-90511bfdb41b",
+      "comment": "",
+      "command": "click",
+      "target": "id=wp-submit",
+      "targets": [
+        ["id=wp-submit", "id"],
+        ["name=wp-submit", "name"],
+        ["css=#wp-submit", "css:finder"],
+        ["xpath=//input[@id='wp-submit']", "xpath:attributes"],
+        ["xpath=//form[@id='loginform']/p[3]/input", "xpath:idRelative"],
+        ["xpath=//p[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "c4e34208-0b75-453c-bda1-2541ee185477",
+    "name": "(success) Login As Subscriber",
+    "commands": [{
+      "id": "3df3b8bf-c67a-4c93-bd07-f25e4448bed3",
+      "comment": "",
+      "command": "open",
+      "target": "/wordpress/wp-login.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "15c023d9-a760-40a3-ada9-7aa352c9d34e",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "976x1080",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b1c475da-c162-4f0b-8d6b-3709c288bfe9",
+      "comment": "",
+      "command": "click",
+      "target": "id=user_login",
+      "targets": [
+        ["id=user_login", "id"],
+        ["name=log", "name"],
+        ["css=#user_login", "css:finder"],
+        ["xpath=//input[@id='user_login']", "xpath:attributes"],
+        ["xpath=//form[@id='loginform']/p/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "77c50581-17e5-4ba6-b113-2f5fd4fa5ff8",
+      "comment": "",
+      "command": "type",
+      "target": "id=user_login",
+      "targets": [
+        ["id=user_login", "id"],
+        ["name=log", "name"],
+        ["css=#user_login", "css:finder"],
+        ["xpath=//input[@id='user_login']", "xpath:attributes"],
+        ["xpath=//form[@id='loginform']/p/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "wp_subscriber"
+    }, {
+      "id": "dcb9984c-61c6-4d70-bfac-eba343162036",
+      "comment": "",
+      "command": "click",
+      "target": "id=user_pass",
+      "targets": [
+        ["id=user_pass", "id"],
+        ["name=pwd", "name"],
+        ["css=#user_pass", "css:finder"],
+        ["xpath=//input[@id='user_pass']", "xpath:attributes"],
+        ["xpath=//form[@id='loginform']/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "bac587e7-1b77-4465-a367-ea50004be27d",
+      "comment": "",
+      "command": "click",
+      "target": "css=.login",
+      "targets": [
+        ["css=.login", "css:finder"],
+        ["xpath=//body", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d2607d71-dcbb-47ee-a16f-201be566d3d4",
+      "comment": "",
+      "command": "type",
+      "target": "id=user_pass",
+      "targets": [
+        ["id=user_pass", "id"],
+        ["name=pwd", "name"],
+        ["css=#user_pass", "css:finder"],
+        ["xpath=//input[@id='user_pass']", "xpath:attributes"],
+        ["xpath=//form[@id='loginform']/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "password"
+    }, {
+      "id": "d565ca2e-0a2d-45bb-ac4e-06b6450664e7",
+      "comment": "",
+      "command": "click",
+      "target": "id=wp-submit",
+      "targets": [
+        ["id=wp-submit", "id"],
+        ["name=wp-submit", "name"],
+        ["css=#wp-submit", "css:finder"],
+        ["xpath=//input[@id='wp-submit']", "xpath:attributes"],
+        ["xpath=//form[@id='loginform']/p[3]/input", "xpath:idRelative"],
+        ["xpath=//p[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "56d40290-e569-4cfa-8bef-0aca17acc299",
+    "name": "(success) (f) Login",
+    "commands": [{
+      "id": "d2d57e0d-fa97-4599-a2b2-d9a3374290c6",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:1337/wordpress/wp-login.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1323266d-5258-4404-966b-ad1fed462ec6",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "976x1080",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4299a1e9-9296-4e2a-bd05-c98ba333edcb",
+      "comment": "",
+      "command": "click",
+      "target": "id=user_login",
+      "targets": [
+        ["id=user_login", "id"],
+        ["name=log", "name"],
+        ["css=#user_login", "css:finder"],
+        ["xpath=//input[@id='user_login']", "xpath:attributes"],
+        ["xpath=//form[@id='loginform']/p/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "25584cca-9e10-459b-9251-24096a34e611",
+      "comment": "",
+      "command": "type",
+      "target": "id=user_login",
+      "targets": [
+        ["id=user_login", "id"],
+        ["name=log", "name"],
+        ["css=#user_login", "css:finder"],
+        ["xpath=//input[@id='user_login']", "xpath:attributes"],
+        ["xpath=//form[@id='loginform']/p/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "${AUTH_USERNAME}"
+    }, {
+      "id": "48d8b9e6-696e-41df-9710-ee8ada1f8344",
+      "comment": "",
+      "command": "click",
+      "target": "id=user_pass",
+      "targets": [
+        ["id=user_pass", "id"],
+        ["name=pwd", "name"],
+        ["css=#user_pass", "css:finder"],
+        ["xpath=//input[@id='user_pass']", "xpath:attributes"],
+        ["xpath=//form[@id='loginform']/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "19cda742-7b37-42d7-ae97-48d5dae373fa",
+      "comment": "",
+      "command": "click",
+      "target": "css=.login",
+      "targets": [
+        ["css=.login", "css:finder"],
+        ["xpath=//body", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "20417e31-6795-4fe0-9f0b-2a1f4ab719fe",
+      "comment": "",
+      "command": "type",
+      "target": "id=user_pass",
+      "targets": [
+        ["id=user_pass", "id"],
+        ["name=pwd", "name"],
+        ["css=#user_pass", "css:finder"],
+        ["xpath=//input[@id='user_pass']", "xpath:attributes"],
+        ["xpath=//form[@id='loginform']/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "${AUTH_PASSWORD}"
+    }, {
+      "id": "556edf16-ef1a-45c1-beba-ed13a6ac48c2",
+      "comment": "",
+      "command": "click",
+      "target": "id=wp-submit",
+      "targets": [
+        ["id=wp-submit", "id"],
+        ["name=wp-submit", "name"],
+        ["css=#wp-submit", "css:finder"],
+        ["xpath=//input[@id='wp-submit']", "xpath:attributes"],
+        ["xpath=//form[@id='loginform']/p[3]/input", "xpath:idRelative"],
+        ["xpath=//p[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "c16da52e-413a-4702-ad97-2f6a58585434",
+    "name": "Authentication",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["f096060a-07eb-4196-90d9-599186ca0d1a", "8e5c782f-62a1-4875-86da-67d434c81ff1", "c4e34208-0b75-453c-bda1-2541ee185477"]
+  }],
+  "urls": ["http://localhost:1337/", "http://localhost:1337/wordpress/wp-login.php"],
+  "plugins": []
+}
