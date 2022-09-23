@@ -1,0 +1,142 @@
+{
+  "id": "5c58d11d-e366-4b34-b11c-1fbb5dacae8a",
+  "version": "2.0",
+  "name": "Conditinal",
+  "url": "http://localhost:1337/qa/",
+  "tests": [{
+    "id": "afe9deee-995f-4ba6-9698-25db8d26e228",
+    "name": "(success) Has Correct Prize Identificators",
+    "commands": [{
+      "id": "3422e9de-c4fe-4969-bc0e-a0184854a72c",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:1337/qa/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "41dca16e-5a4b-4873-a2c9-cba81c80cbed",
+      "comment": "",
+      "command": "click",
+      "target": "id=action-play",
+      "targets": [
+        ["id=action-play", "id"],
+        ["css=#action-play", "css:finder"],
+        ["xpath=//button[@id='action-play']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Click to win')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ebbf892a-4617-4c9b-9294-7b23774f81d1",
+      "comment": "",
+      "command": "storeText",
+      "target": "id=win-condition",
+      "targets": [
+        ["id=win-condition", "id"],
+        ["css=#win-condition", "css:finder"],
+        ["xpath=//div[@id='win-condition']", "xpath:attributes"],
+        ["xpath=//div", "xpath:position"],
+        ["xpath=//div[contains(.,'2')]", "xpath:innerText"]
+      ],
+      "value": "win_condition"
+    }, {
+      "id": "9014ce26-8cd0-41db-a558-06121fa7a8fe",
+      "comment": "",
+      "command": "echo",
+      "target": "${win_condition}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d1b362c9-7650-41f8-8de3-ac1bb329bba6",
+      "comment": "",
+      "command": "if",
+      "target": "${win_condition} < 5",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c079032e-79ee-4b6a-9365-89ff3edaf24a",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=win-prize",
+      "targets": [
+        ["id=win-prize", "id"],
+        ["css=#win-prize", "css:finder"],
+        ["xpath=//div[@id='win-prize']", "xpath:attributes"],
+        ["xpath=//div[6]", "xpath:position"],
+        ["xpath=//div[contains(.,'WIN')]", "xpath:innerText"]
+      ],
+      "value": "WIN"
+    }, {
+      "id": "e35a1a21-00ec-4c85-8a26-24ef7bc2316e",
+      "comment": "",
+      "command": "end",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "27934a38-f6f6-469c-ba5a-68ee968595f4",
+      "comment": "",
+      "command": "if",
+      "target": "${win_condition} == 5",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "00f71f02-6847-49fe-ad13-3072882f2a9a",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=win-prize",
+      "targets": [
+        ["id=win-prize", "id"],
+        ["css=#win-prize", "css:finder"],
+        ["xpath=//div[@id='win-prize']", "xpath:attributes"],
+        ["xpath=//div[4]", "xpath:position"],
+        ["xpath=//div[contains(.,'WIN')]", "xpath:innerText"]
+      ],
+      "value": "DRAW"
+    }, {
+      "id": "7d6b0c0a-7ff0-4c4e-9ef6-ec99b614d174",
+      "comment": "",
+      "command": "end",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d30751be-8b8e-462a-b764-329c5d92e5a0",
+      "comment": "",
+      "command": "if",
+      "target": "${win_condition} > 5",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6cb90c7f-a13d-4bae-9245-e8498c8e52f1",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=win-prize",
+      "targets": [
+        ["id=win-prize", "id"],
+        ["css=#win-prize", "css:finder"],
+        ["xpath=//div[@id='win-prize']", "xpath:attributes"],
+        ["xpath=//div[5]", "xpath:position"],
+        ["xpath=//div[contains(.,'WIN')]", "xpath:innerText"]
+      ],
+      "value": "LOSE"
+    }, {
+      "id": "4d4893b9-71b6-47fb-ac4f-ce7be910b356",
+      "comment": "",
+      "command": "end",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "ab1b2516-6ac6-44eb-931d-0e5e8de212ee",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["afe9deee-995f-4ba6-9698-25db8d26e228"]
+  }],
+  "urls": ["http://localhost:1337/qa/"],
+  "plugins": []
+}
