@@ -1,0 +1,101 @@
+{
+	"info": {
+		"_postman_id": "39aa3c48-a436-4316-b0fb-6f0119a5a4d0",
+		"name": "Posts",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6226845"
+	},
+	"item": [
+		{
+			"name": "Get All Wordpress posts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{WEB_DOMAIN}}/posts",
+					"host": [
+						"{{WEB_DOMAIN}}"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get single post",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{WEB_DOMAIN}}/posts/50?context=view",
+					"host": [
+						"{{WEB_DOMAIN}}"
+					],
+					"path": [
+						"posts",
+						"50"
+					],
+					"query": [
+						{
+							"key": "context",
+							"value": "view"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get single post - in edit mode withod Admin credentials",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{WEB_DOMAIN}}/posts/50?context=edit",
+					"host": [
+						"{{WEB_DOMAIN}}"
+					],
+					"path": [
+						"posts",
+						"50"
+					],
+					"query": [
+						{
+							"key": "context",
+							"value": "edit"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "WEB_DOMAIN",
+			"value": "http://localhost:1337/wordpress"
+		}
+	]
+}
