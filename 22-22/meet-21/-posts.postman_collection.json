@@ -1,0 +1,334 @@
+{
+	"info": {
+		"_postman_id": "85fb8d62-bfc1-4b4d-a51a-aa6c9d16bc7c",
+		"name": "/posts",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6226845"
+	},
+	"item": [
+		{
+			"name": "Basic CRUD API requests",
+			"item": [
+				{
+					"name": "List all posts",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.log(responseBody);\r",
+									"\r",
+									"const response = JSON.parse(responseBody);\r",
+									"console.log(response.length);\r",
+									"\r",
+									"pm.test('A status code 200 is expected', () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test('It is expected to have a body', () => {\r",
+									"    pm.response.to.have.body();\r",
+									"});\r",
+									"\r",
+									"pm.test('It is expected to be a collection', () => {\r",
+									"    pm.expect(response.length).to.be.equal(0);\r",
+									"})\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{WEB_DOMAIN}}/posts",
+							"host": [
+								"{{WEB_DOMAIN}}"
+							],
+							"path": [
+								"posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create new post",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = JSON.parse(responseBody);\r",
+									"\r",
+									"pm.globals.set(\"created_post_id\"        , response.id);\r",
+									"pm.globals.set(\"created_post_title\"     , response.title.rendered);\r",
+									"pm.globals.set(\"created_post_content\"   , response.content.rendered);\r",
+									"\r",
+									"pm.test('Post is created succsfuly', () => {\r",
+									"    pm.response.to.have.status(201);\r",
+									"    pm.response.to.have.body();\r",
+									"});\r",
+									"\r",
+									"pm.test(\"New post have exact predefined title\", () => {\r",
+									"    pm.expect(response.title.raw).to.equal(\"Create new REST API Post\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"New post have exact predefined content\", () => {\r",
+									"    pm.expect(response.content.raw).to.equal(\"Sample new Wordpress content\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{AUTH_TOKEN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Create new REST API Post\",\r\n    \"content\" : \"Sample new Wordpress content\",\r\n    \"status\" : \"publish\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{WEB_DOMAIN}}/posts",
+							"host": [
+								"{{WEB_DOMAIN}}"
+							],
+							"path": [
+								"posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retreave specific Post",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = JSON.parse(responseBody);\r",
+									"\r",
+									"pm.test('Retreaved post is the same exact as created one - check id', () => {\r",
+									"\r",
+									"    const createdPostId      = pm.globals.get(\"created_post_id\");\r",
+									"    \r",
+									"    console.log(response);\r",
+									"    console.log(response.id);\r",
+									"    console.log(createdPostId);\r",
+									"\r",
+									"    pm.expect(createdPostId).to.equal(response.id);\r",
+									"});\r",
+									"\r",
+									"pm.test('Retreaved post is the same exact as created one - check title', () => {\r",
+									"\r",
+									"    const createdPostTitle   = pm.globals.get(\"created_post_title\");\r",
+									"    console.log(response);\r",
+									"    console.log(response.title.raw);\r",
+									"    console.log(createdPostTitle);\r",
+									"\r",
+									"    pm.expect(createdPostTitle).to.equal(response.title.rendered);\r",
+									"});\r",
+									"\r",
+									"pm.test('Retreaved post is the same exact as created one', () => {\r",
+									"\r",
+									"    const createdPostContent = pm.globals.get(\"created_post_content\");\r",
+									"    console.log(response);\r",
+									"    console.log(response.content.raw);\r",
+									"    console.log(createdPostContent);\r",
+									"\r",
+									"    pm.expect(createdPostContent).to.equal(response.content.rendered);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{WEB_DOMAIN}}/posts/{{created_post_id}}",
+							"host": [
+								"{{WEB_DOMAIN}}"
+							],
+							"path": [
+								"posts",
+								"{{created_post_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update existing post",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = JSON.parse(responseBody);\r",
+									"\r",
+									"pm.test('Update post and check if the id is the same', () => {\r",
+									"\r",
+									"    const createdPostId      = pm.globals.get(\"created_post_id\");\r",
+									"    pm.expect(createdPostId).to.equal(response.id);\r",
+									"});\r",
+									"\r",
+									"pm.test('Updated title must be Updated title', () => {\r",
+									"    pm.expect(response.title.rendered).to.equal(\"Updated title\");\r",
+									"})\r",
+									"\r",
+									"pm.test('Updated title must be Updated content', () => {\r",
+									"    pm.expect(response.content.rendered).to.equal(\"Updated content\");\r",
+									"})\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{AUTH_TOKEN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\" : \"Updated title\",\r\n    \"content\" : \"Updated content\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{WEB_DOMAIN}}/posts/{{created_post_id}}",
+							"host": [
+								"{{WEB_DOMAIN}}"
+							],
+							"path": [
+								"posts",
+								"{{created_post_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove existing post",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = JSON.parse(responseBody);\r",
+									"\r",
+									"pm.test('Deleted post id is the same', () => {\r",
+									"\r",
+									"    const createdPostId      = pm.globals.get(\"created_post_id\");\r",
+									"    pm.expect(createdPostId).to.equal(response.id);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{AUTH_TOKEN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\" : \"Updated title\",\r\n    \"content\" : \"Updated content\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{WEB_DOMAIN}}/posts/{{created_post_id}}",
+							"host": [
+								"{{WEB_DOMAIN}}"
+							],
+							"path": [
+								"posts",
+								"{{created_post_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Admin User authentication",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const response = JSON.parse(responseBody);\r",
+							"console.log(response.token);\r",
+							"\r",
+							"pm.globals.set(\"AUTH_TOKEN\", `Bearer ${response.token}`);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\" : \"wp_admin\",\r\n    \"password\" : \"password\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1337/wordpress/wp-json/jwt-auth/v1/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1337",
+					"path": [
+						"wordpress",
+						"wp-json",
+						"jwt-auth",
+						"v1",
+						"token"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
